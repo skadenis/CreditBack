@@ -15,7 +15,7 @@ router.post('/add-lead', Policy(), async function(req, res, next) {
     await new DataBase('leads').add({
         phone: req.body.phone,
         utm: req.body.utm,
-        src: await GetSourceID(req.body.token)
+        source: await GetSourceID(req.body.token)
     });
 
     res.json({status: 200}).status(200);
