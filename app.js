@@ -14,17 +14,18 @@ let apiRouter = require('./routes/api');
 
 let app = express();
 
+let corsOptions = {
+    credentials: true,
+};
+
+app.options('*', cors(corsOptions))
+
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-let corsOptions = {
-    credentials: true,
-};
-
-app.options('*', cors(corsOptions))
 
 
 cron.schedule('*/1 * * * *', async function() {
