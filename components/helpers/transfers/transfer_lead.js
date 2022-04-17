@@ -2,7 +2,7 @@ let DataBase = require('../../DataBase');
 let transfer_lead_partner = require('./transfer_lead_partner');
 
 module.exports = async function(lead){
-    let partner = await new DataBase('transfer_partners').DB_query('SELECT * FROM transfer_partners WHERE today_transfered <= daily_limit ORDER BY priority DESC LIMIT 1');
+    let partner = await new DataBase('transfer_partners').DB_query('SELECT * FROM transfer_partners WHERE today_transfered < daily_limit ORDER BY priority DESC LIMIT 1');
 
     if (partner.length > 0){
         let res = await transfer_lead_partner(lead, partner[0].integration_name);
