@@ -17,11 +17,11 @@ router.get('/', async function(req, res, next) {
 });
 
 router.post('/add-lead', Policy(), async function(req, res, next) {
-    console.log(req.body);
     await new DataBase('leads').add({
         phone: req.body.phone,
         utm: req.body.utm,
-        region: req.body['6'],
+        region: req.body.quiz['6'],
+        quiz: req.body.quiz,
         source: await GetSourceID(req.body.token)
     });
 
