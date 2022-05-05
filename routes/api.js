@@ -20,6 +20,7 @@ router.post('/add-lead', Policy(), async function(req, res, next) {
     await new DataBase('leads').add({
         phone: req.body.phone,
         utm: req.body.utm,
+        region: req.body['6'],
         source: await GetSourceID(req.body.token)
     });
 
