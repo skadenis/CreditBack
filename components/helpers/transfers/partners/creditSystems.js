@@ -31,7 +31,7 @@ module.exports = async function transfer(info){
         method: 'POST',
         headers: { 'content-type': 'application/x-www-form-urlencoded' },
         data: qs.stringify(data),
-        url: 'https://bitrix24.helpcredit.by/',
+        url: 'https://bitrix24.helpcredit.by/rest/',
         httpsAgent: agent
     };
 
