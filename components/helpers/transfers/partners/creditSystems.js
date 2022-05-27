@@ -39,6 +39,7 @@ module.exports = async function transfer(info){
 
     await axios(options)
         .then(async function (response) {
+            console.log(response);
             status = 200;
         })
         .catch(async function (err) {
