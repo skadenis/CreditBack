@@ -11,13 +11,13 @@ const agent = new https.Agent({
 module.exports = async function transfer(info){
     let data = {
         fields: {
-                NAME: '',
-                SOURCE_ID: 2,
-                PHONE: [
-                    {
-                        VALUE: info.phone,
-                        VALUE_TYPE: 'WORK'
-                    }]
+            NAME: '',
+            SOURCE_ID: 2,
+            PHONE: [
+                {
+                    VALUE: info.phone,
+                    VALUE_TYPE: 'WORK'
+                }]
             },
         params:{
             REGISTER_SONET_EVENT: 'Y'
@@ -28,7 +28,7 @@ module.exports = async function transfer(info){
         method: 'POST',
         headers: { 'content-type': 'application/x-www-form-urlencoded' },
         data: qs.stringify(data),
-        url: 'https://bitrix24.helpcredit.by/rest/17/gdejttx57edni0iq/crm.lead.add.json',
+        url: 'https://bitrix24.newhc.by/rest/17/gdejttx57edni0iq/crm.lead.add.json',
         httpsAgent: agent
     };
 

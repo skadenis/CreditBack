@@ -17,6 +17,9 @@ router.get('/', async function(req, res, next) {
 });
 
 router.post('/add-lead', Policy(), async function(req, res, next) {
+
+    // await new DataBase('SELECT * FROM leads WHERE datetime')
+
     await new DataBase('leads').add({
         phone: req.body.phone,
         utm: req.body.utm,
