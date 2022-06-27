@@ -18,14 +18,26 @@ router.get('/', async function(req, res, next) {
 
 router.post('/add-lead', Policy(), async function(req, res, next) {
 
-    // await new DataBase('SELECT * FROM leads WHERE datetime')
-
     await new DataBase('leads').add({
         phone: req.body.phone,
         utm: req.body.utm,
         region: req.body.quiz['6'],
         quiz: req.body.quiz,
         source: await GetSourceID(req.body.token)
+    });
+
+    res.json({status: 200}).status(200);
+});
+
+
+router.post('/add-lead-credit-systems', Policy(), async function(req, res, next) {
+
+    await new DataBase('leads').add({
+        phone: req.query.phone,
+        utm: {},
+        region: null,
+        quiz: null,
+        source: 8
     });
 
     res.json({status: 200}).status(200);

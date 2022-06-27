@@ -11,6 +11,7 @@ let cron = require('node-cron');
 let cors = require('cors');
 
 let apiRouter = require('./routes/api');
+let csRouter = require('./routes/csRouter');
 
 let app = express();
 
@@ -28,6 +29,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 
 
+
 cron.schedule('*/1 * * * *', async function() {
     await cron_transfer_lead();
 });
@@ -37,5 +39,7 @@ cron.schedule('0 0 * * *', async function() {
 });
 
 app.use('/api', apiRouter);
+app.use('/credit-systems', csRouter);
+
 
 module.exports = app;
