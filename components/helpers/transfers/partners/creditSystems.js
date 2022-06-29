@@ -13,6 +13,10 @@ module.exports = async function transfer(info){
         fields: {
             NAME: '',
             SOURCE_ID: 2,
+            UTM_SOURCE: info.utm.utm_source,
+            UTM_MEDIUM: info.utm.utm_medium,
+            UTM_CAMPAIGN: info.utm.utm_campaign,
+            UTM_CONTENT : info.utm.utm_content,
             PHONE: [
                 {
                     VALUE: info.phone,
